@@ -32,9 +32,6 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('views', './templete');
-app.set('view engine','ejs');
-
 app.get('/',(req, res)=>{
     const isAuthenticated = !!req.user;
     if (isAuthenticated) {
@@ -44,10 +41,6 @@ app.get('/',(req, res)=>{
       console.log("unknown user\nredirected to login");
       res.redirect('login');
     }
-})
-
-app.get('/easy',(req,res) =>{
-    res.render("templete");
 })
 
 app.post('/logout',(req, res) =>{
@@ -65,7 +58,7 @@ app.post('/logout',(req, res) =>{
 })
 app.route('/login')
 .get(checkAuthentication, (req, res) => {
-    res.render("login");
+    res.sendFile(__dirname + "/client/login/login.html");
 })
 .post(
     passport.authenticate("local",{
@@ -76,7 +69,7 @@ app.route('/login')
 );
 
 app.get('/chat',checkNotAuthentication, (req, res)=>{
-    res.render("chat");
+    res.sendFile(__dirname + "/client/chat/chat.html");
 });
 
 app.get('/clients',(req, res)=>{
