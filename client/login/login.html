@@ -37,7 +37,7 @@
                             class="form-control" 
                             placeholder="username"
                             autocomplete="off"  
-                            value="manav"
+                            value=""
                             required
                             />
                             
@@ -53,12 +53,12 @@
                             class="form-control" 
                             placeholder="password" 
                             autocomplete="off" 
-                            value="manav2003"
+                            value=""
                             required
                             />
                         </div>
                         <div class="row align-items-center remember">
-                            <input type="checkbox" id="toggle" checked="false" />Show Password
+                            <input type="checkbox" id="toggle" />Show Password
                         </div>
                         <div class="form-group">
                             <input type="submit" value="Login" class="btn float-right login_btn">
@@ -67,6 +67,26 @@
                 </div>
 
             </div>
+
+        
+        </div>
+        <div>            
+            <button id="u1">User 1</button>
+            <button id="u2">User 2</button>
+            <script type="text/javascript">
+                document.getElementById('u1').addEventListener("click", u1);
+                document.getElementById('u2').addEventListener("click", u2);
+
+                function u1() {
+                  document.getElementById("name").value = "Somesh";
+                  document.getElementById("password").value = "somesh@123";
+                }
+
+                function u2() {
+                  document.getElementById("name").value = "Harshada";
+                  document.getElementById("password").value = "Harshada@123";
+                }
+            </script>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
